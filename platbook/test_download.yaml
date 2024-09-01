@@ -1,0 +1,7 @@
+---
+- hosts: webhosts
+  become: yes
+  tasks:
+    - name: Run test
+      script: ../script/script_download.sh
+      
