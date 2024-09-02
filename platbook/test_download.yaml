@@ -1,7 +1,18 @@
 ---
-- hosts: webhosts
+- name: Install nginx htop and git 
+  hosts: webhosts
   become: yes
   tasks:
-    - name: Run test
-      script: ../script/script_download.sh
-      
+    - name: Install nginx, htop, git
+      apt:
+        name:
+          - nginx
+          - htop
+          - git
+        state: present
+
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
